@@ -182,4 +182,8 @@ function client.core.menu()
 end
 
 -- Start Code:
-client.getapi()
+if http then
+	client.getapi()
+else
+	printError("No http enabled.")
+end
