@@ -1,2 +1,0 @@
---the nice remote gui for advanced pocket computers
---compatibility mode for other advance computers/turtle (black box screen edge)
