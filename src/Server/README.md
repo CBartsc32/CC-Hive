@@ -1,4 +1,4 @@
-#this part of the project has been assigned to @dannysmc
+#this part of the project has been assigned to dannysmc
 
 
 --[[
