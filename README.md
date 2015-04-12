@@ -3,7 +3,7 @@
 
 ######Note to collaborators, try to be [CCDoc](https://github.com/lupus590/CCDoc) compliant with comments.
 
-Hive will be a mind, that can / will control all turtles it has power over to make them carry out jobs any user can assign. You can assign jobs to a turtle as well as get the status and how well the turtle is doing. You can also use the online job store to access jobs that other users have uploaded and even make upload your own. (This is part of CCSystems). As a backup if a turtle errors it will drop into a command access where a client can see a turtle has errored and access it's command line and attempt to fix it without having to go to the turtle. If it can't be fixed you can request the turtle comes back to the hub.
+Hive will be a mind, that can / will control all turtles it has power over to make them carry out jobs any user can assign. You can assign jobs to a turtle as well as get the status and how well the turtle is doing. As a backup if a turtle errors it will drop into a command access where a client can see a turtle has errored and access it's command line and attempt to fix it without having to go to the turtle. If it can't be fixed you can request the turtle comes back to the hub.
 
 
 #####Want to help?
