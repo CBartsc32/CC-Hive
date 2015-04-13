@@ -5,3 +5,4 @@
 * get skyNav to work
 * downloader (pulls files from this repo)
 * standalone installer (use some kind of self extracting archive program)
+* Hive protects its source, over write io and fs API's so that hive files are read only (while hive is running)
