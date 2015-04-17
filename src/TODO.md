@@ -1,7 +1,5 @@
 ### TODO: everything below
 
-### TODO: clean up do to list for readability
-
 ### TODO: reformat forum post copy for markdown
 
 * Convert readme, to do list to markdown format
