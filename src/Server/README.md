@@ -1,8 +1,1 @@
-#this part of the project has been assigned to dannysmc
-
-
---[[
-	Server:
-
-	
-]]
+#This part of the project has been assigned to dannysmc
