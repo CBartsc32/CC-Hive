@@ -2,8 +2,9 @@
 
 --this program is assigned to Lupus590
 
-local fileNames = {surver = "server.lua", turtle = "turtle.lua", client = "client.lua"}
-local logPath = "Hive/Logs"
+local fileNames = {server = "server.lua", turtle = "turtle.lua", client = "client.lua"}
+local logPath = "Hive/src/Logs/"
+local logNames = (server = "server.log", turtle = "turtle.log", client = "client.log"}
 
 local function clearScreen()
   term.setTextColour(colours.white)
@@ -37,8 +38,9 @@ else
     clearScreen()
     print("Error: "..tostring(rValue))
     print("Congratulations!")
-    print("You found an error that Hive could not recover from, please report it on github https://github.com/lupus590/CC-Hive/issues/new")
+    print("You found an error that Hive could not recover from, please report it on github https://github.com/lupus590/CC-Hive/issues/new or on the CC forum thread http://www.computercraft.info/forums2/index.php?/topic/22421-")
     print("Hive has been writing error logs while it was working, we can use these logs to track down where the error happened and what caused it.")
+    print("The logs can be found at: "..logPath)
     if HTTP then
       print("Would you like this program to upload the error logs to pastebin? [y/n]")
       local _, confirm
@@ -46,8 +48,8 @@ else
         _, confirm = os.pullEvent("char")
         print("")
         if confirm == "y" or confirm =="Y" then
-          --upload to pastebin (eventually returns pasteCode or pasteURL)
-          print("The error logs were uploaded to: pastebin.com/"..pasteCode)
+          --upload each log to pastebin (eventually returns pasteCodes or pasteURLs)
+          print("The error logs were uploaded to: pastebin.com/"..pasteCodes)
         elseif confirm == "n" or conform == "N" then
           print("Please upload the logs yourself, find them at: "..logPath)
         else
