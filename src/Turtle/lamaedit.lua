@@ -10,17 +10,17 @@ local fuel = {}
 fuel.load = function()
 	if fs.exists( ".fuel" ) then
 		local file = fs.open( ".fuel", "r" )
-		fuel.amount = file.readAll():match( "%S+$" )
+		fuel.amount = tonumber( file.readAll() )
 		file.close()
 	else
 		fuel.amount = turtle.getFuelLevel()
 	end
-	fuel.file = fs.open( ".fuel", "w" )
 end
 
 fuel.save = function()
-	fuel.file.write( " " .. fuel.amount )
-	fuel.file.flush()
+	local file = fs.open( ".fuel", "w" )
+	file.write( fuel.amount )
+	file.close()
 end
 
 --facing tracking
@@ -38,28 +38,30 @@ facing.turnRight = function()
 end
 
 facing.save = function()
-	facing.file.write( textutils.serialize( {facing.face, facing.direction} ) )
-	facing.file.flush()
+	local file = fs.open( ".facing", "w" )
+	file.write( textutils.serialize( {facing.face, facing.direction} ) )
+	file.close()
 end
 
 facing.load = function()
 	if fs.exists( ".facing" ) then
 		local file = fs.open( ".facing", "r" )
-		facing.face, facing.direction = unpack( textutils.unserialize( file.readAll():match( "{.-}$" ) ) )
+		facing.face, facing.direction = unpack( textutils.unserialize( file.readAll() ) )
 		file.close()
 	else
 		facing.face = "north"
 	end
-	facing.file = fs.open( ".facing", "w" )
 end
 
 --position tracking
 local position = {}
 position.save = function()
 	position.update()
-	position.file.write( textutils.serialize( { position.x, position.y, position.z } ) )
-	position.file.flush()
+	local file = fs.open( ".position", "w" )
+	file.write( textutils.serialize( { position.x, position.y, position.z } ) )
+	file.close()
 end
+
 position.load = function()
 	if fs.exists( ".position" ) then
 		local file = fs.open( ".position", "r" )
@@ -68,7 +70,6 @@ position.load = function()
 	else
 		position.x, position.y, position.z = 1, 1, 1
 	end
-	position.file = fs.open( ".position", "w" )
 end
 
 position.update = function()
@@ -118,7 +119,7 @@ end
 
 env.up = function()
 	if facing.direction ~= "up" then
-		position.update()
+		position.save()
 		facing.direction = "up"
 		facing.save()
 	end
@@ -127,7 +128,7 @@ end
 
 env.down = function()
 	if facing.direction ~= "down" then
-		position.update()
+		position.save()
 		facing.direction = "down"
 		facing.save()
 	end
@@ -135,20 +136,18 @@ env.down = function()
 end
 
 env.turnRight = function()
-	position.update()
+	position.save()
 	facing.turnRight()
 	facing.save()
-	position.save()
 	return turtle.turnRight()
 end
 
 env.turnLeft = function()
-	position.update()
+	position.save()
 	facing.turnRight()
 	facing.turnRight()
 	facing.turnRight()
 	facing.save()
-	position.save()
 	return turtle.turnRight()
 end
 
@@ -163,12 +162,14 @@ env.refuel = function( n )
 end
 
 env.overwrite = function( t )
+	t = t or _G.turtle
 	for k, v in pairs( env ) do
 		t[ k ] = v
 	end
 end
 
 env.getPosition = function()
+	position.update()
 	return position.x, position.y, position.z, facing.face
 end
 
