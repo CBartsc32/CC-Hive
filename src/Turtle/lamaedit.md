@@ -14,3 +14,5 @@ local x, y, z, facing = lamaedit.getPosition()
 --Set the position of the turtle (facing is optional)
 lamaedit.setPosition( x, y, z[, facing] )
 ```
+#### For more information:
+https://github.com/lupus590/CC-Hive/wiki/Lamaedit
