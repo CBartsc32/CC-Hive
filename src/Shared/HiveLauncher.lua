@@ -23,35 +23,36 @@ else
   local program = table.remove(args,1) --remove the program name from the args, args will be passed to the launched component
   if program == fileNames.surver then
     clearScreen()
-    ok,rValue = pcall(shell.run,fileNames.server,table.unpack(args))
+    ok,rValue = pcall(shell.run,fileNames.server,unpack(args))
   elseif program == fileNames.turtle then
     clearScreen()
-    ok,rValue = pcall(shell.run,fileNames.turtle,table.unpack(args))
+    ok,rValue = pcall(shell.run,fileNames.turtle,unpack(args))
   elseif program == fileNames.client then
     clearScreen()
-    ok,rValue = pcall(shell.run,fileNames.client,table.unpack(args))
+    ok,rValue = pcall(shell.run,fileNames.client,unpack(args))
   else
     error("First parameter is not the name of a hive component, if you renamed them then you need to update this script",2)
   end
   --error handling starts here
   if not ok then
     clearScreen()
+    print("Something went horribly wrong!")
     print("Error: "..tostring(rValue))
     print("This was not meant to happen.")
     print("You found an error that Hive could not recover from, please report it on github https://github.com/lupus590/CC-Hive/issues/new or on the CC forum thread http://www.computercraft.info/forums2/index.php?/topic/22421-")
     print("Hive has been writing error logs while it was working, we can use these logs to track down where the error happened and what caused it.")
     print("The logs can be found at: "..logPath)
-    if HTTP then
+    if http then
       print("Would you like this program to upload the error logs to pastebin? [y/n]")
       local _, confirm
       while not (confirm == "y" or confirm =="Y" or confirm == "n" or conform == "N") do
         _, confirm = os.pullEvent("char")
         print("")
-        if confirm == "y" or confirm =="Y" then
-          --TODO: integrate with github and auto post an issue
+        if confirm:lower() == "y" then
+          --TODO: integrate with github and auto post an issue (https://developer.github.com/v3/issues/#create-an-issue)
           --upload each log to pastebin (eventually returns pasteCodes or pasteURLs)
           print("The error logs were uploaded to: pastebin.com/"..pasteCodes)
-        elseif confirm == "n" or conform == "N" then
+        elseif confirm:lower() == "n" then
           print("Please upload the logs yourself, find them at: "..logPath)
         else
           --wait for proper confirmation
