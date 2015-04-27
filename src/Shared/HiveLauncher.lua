@@ -37,7 +37,7 @@ else
   if not ok then
     clearScreen()
     print("Error: "..tostring(rValue))
-    print("Congratulations!")
+    print("This was not meant to happen.")
     print("You found an error that Hive could not recover from, please report it on github https://github.com/lupus590/CC-Hive/issues/new or on the CC forum thread http://www.computercraft.info/forums2/index.php?/topic/22421-")
     print("Hive has been writing error logs while it was working, we can use these logs to track down where the error happened and what caused it.")
     print("The logs can be found at: "..logPath)
@@ -48,6 +48,7 @@ else
         _, confirm = os.pullEvent("char")
         print("")
         if confirm == "y" or confirm =="Y" then
+          --TODO: integrate with github and auto post an issue
           --upload each log to pastebin (eventually returns pasteCodes or pasteURLs)
           print("The error logs were uploaded to: pastebin.com/"..pasteCodes)
         elseif confirm == "n" or conform == "N" then
