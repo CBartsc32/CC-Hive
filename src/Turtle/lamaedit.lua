@@ -51,8 +51,26 @@ facing.load = function() --loads facing / current movement direction
 		local file = fs.open( ".facing", "r" )
 		facing.face, facing.direction = unpack( textutils.unserialize( file.readAll() ) )
 		file.close()
-	else --otherwise, turtle defaults to facing north (direction does not need to be preset)
-		facing.face = "north"
+	else --otherwise, try to locate via gps
+		local x, y, z = position.x, position.y, position.z
+		if turtle.forward() then
+			local newx, newy, newz = gps.locate(1)
+			if not newx then --we didn't get a location
+				facing.face = "north" --default
+			elseif newx > x then
+				facing.face = "north"
+			elseif newx < x then
+				facing.face = "south"
+			elseif newz > z then
+				facing.face = "east"
+			elseif newz < z then
+				facing.face = "west"
+			end
+			position.save() --save our position
+			facing.save()
+		else
+			facing.face = "north" --we couldn't move forward, something was obstructing
+		end
 	end
 end
 
@@ -70,8 +88,13 @@ position.load = function() --loads position (x, y z)
 		local file = fs.open( ".position", "r" )
 		position.x, position.y, position.z = unpack( textutils.unserialize( file.readAll() ) )
 		file.close()
-	else --otherwise assume we are at 1, 1, 1
-		position.x, position.y, position.z = 1, 1, 1
+	else --otherwise try for gps coords
+		local x, y, z = gps.locate(1)
+		if x then
+			position.x, position.y, position.z = x, y, z
+		else --now we assume 1,1,1
+			position.x, position.y, position.z = 1, 1, 1
+		end
 	end
 end
 
@@ -187,7 +210,7 @@ env.setPosition = function( x, y, z, face ) --sets the current position of the t
 	facing.save() --save the way we are facing
 end
 
+position.load() --this needs to be called before facing, for GPS to work properly
 facing.load() --just loading stuff
-position.load()
 fuel.load()
 position.update() --and updating our coords
