@@ -5,6 +5,7 @@
 local fileNames = {server = "server.lua", turtle = "turtle.lua", client = "client.lua"}
 local logPath = "Hive/src/Logs/"
 local logNames = (server = "server.log", turtle = "turtle.log", client = "client.log"}
+local errorLols = {[1] = "","",""}
 
 local function clearScreen()
   term.setTextColour(colours.white)
