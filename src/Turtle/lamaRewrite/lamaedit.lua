@@ -4,6 +4,12 @@ for k, v in pairs( _G.turtle ) do
 	turtle[ k ] = v
 end
 
+--copy default gps
+local gps = {}
+for k, v in pairs( _G.gps ) do
+	gps[ k ] = v
+end
+
 if not fs.isDir( ".lamaedit" ) then
 	fs.makeDir( ".lamaedit" )
 end
@@ -212,6 +218,12 @@ env.setPosition = function( x, y, z, face ) --sets the current position of the t
 	facing.face = face or facing.face --default the the current facing if it's not provided
 	position.save() --save our new position
 	facing.save() --save the way we are facing
+end
+
+--overwrite gps.locate
+_G.gps.locate = function( n, b )
+	local x, y, z, facing = env.getPosition()
+	return x, y, z
 end
 
 position.load() --this needs to be called before facing, for GPS to work properly
