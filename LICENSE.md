@@ -1,6 +1,6 @@
 #The MIT License (MIT)
 
-Copyright (c) 16th March 2015 Nephi (Pseudonym: Lupus590)
+Copyright (c) 16th March 2015 The Hive Build Team
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,4 +20,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-This project also uses several third party programs, these programs have there own licenses. See readme for more info.
+This project also uses several third party programs and APIs, these programs have
+there own licenses. See the readme for more info.
