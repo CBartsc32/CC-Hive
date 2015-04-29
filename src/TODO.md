@@ -16,7 +16,7 @@
 * [ ] Command Line Interface
 * [ ] Graphical User Interface
 
-####Shaired
+####Shared
 * [x] remote connect - control computers like you are there, useing Lyquds' nsh and vncd
 * [ ] lua table for storing user settings
 
