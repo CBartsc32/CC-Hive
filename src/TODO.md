@@ -4,17 +4,24 @@
 ####Turtle Stuff
 * [x] Update lama (last forum post said that it was buggy/not working in CC1.63)
 * [ ] Combine lama with starNav?
- 
-* [ ] installer code - from https://github.com/LeGoldFish/Advance-Turtle-Operating-Environment/blob/master/installer
+* [ ] turtle movement api - make it emit turtle_moved event?
+* [ ] turtle task requester
+* [ ] tracking reporter
 
-
+####Server Stuff
 * [ ] task master
-* [ ] drone watcher
-* [ ] tracking script (turtle side)
+* [ ] turtle watcher
+
+####Client
+* [ ] Command Line Interface
+* [ ] Graphical User Interface
+
+####Shaired
 * [x] remote connect - control computers like you are there, useing Lyquds' nsh and vncd
 * [ ] lua table for storing user settings
-* [ ] GUI
 
+####
+* [ ] installer code - from https://github.com/LeGoldFish/Advance-Turtle-Operating-Environment/blob/master/installer
 
 ####Help Docs
 * [ ] help docs are "registered" with the default help program
