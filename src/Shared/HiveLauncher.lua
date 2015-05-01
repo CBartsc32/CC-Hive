@@ -2,6 +2,8 @@
 
 --this program is assigned to Lupus590
 
+local helpPath = "Hive/src/Help/"
+local helpDocs = {server = "server.txt", turtle = "turtle.txt", client = "client.txt"}
 local fileNames = {server = "server.lua", turtle = "turtle.lua", client = "client.lua"}
 local logPath = "Hive/src/Logs/"
 local logNames = (server = "server.log", turtle = "turtle.log", client = "client.log"}
@@ -31,6 +33,8 @@ else
   elseif program == fileNames.client then
     clearScreen()
     ok,rValue = pcall(shell.run,fileNames.client,unpack(args))
+  elseif program == "help"
+    --i have no idea what to put here
   else
     error("First parameter is not the name of a hive component, if you renamed them then you need to update this script",2)
   end
