@@ -35,6 +35,8 @@ else
     ok,rValue = pcall(shell.run,fileNames.client,unpack(args))
   elseif program == "help"
     --i have no idea what to put here
+  elseif program == "update"
+    --download latest files from github
   else
     error("First parameter is not the name of a hive component, if you renamed them then you need to update this script",2)
   end
