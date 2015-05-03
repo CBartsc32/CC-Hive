@@ -4,6 +4,15 @@ end
 
 local repo = "https://raw.githubusercontent.com/lupus590/CC-Hive/master/src/"
 
+local packages = {
+  lama = {
+    id = "lama",
+    files = {
+      "Turtle/lama/lama.lua"
+    }
+  }
+}
+
 local directories = { --list of folders to create
   "Assets",
   "Client",
@@ -41,6 +50,10 @@ local files = { --list of files to get
 }
 
 
+local function install(fileName)
+end
+
+
 local function installEverything()
   for _, dir in ipairs( directories ) do -- make the directories
     fs.makeDir( dir )
@@ -54,10 +67,11 @@ local function installEverything()
       file.close()
       response.close()
     else -- otherwise, error
-      error( "Failed to get file: " .. v, 0 )
+      error( "Failed to get file: " .. file, 0 )
     end
   end
 end
+
 
 local function installLama()
   local response = http.get( repo .. "Turtle/lama/lama.lua" ) -- get the file
@@ -67,7 +81,7 @@ local function installLama()
     file.close()
     response.close()
   else -- otherwise, error
-    error( "Failed to get file: " .. "Turtle/lama/lama.lua", 0 )
+    error( "Failed to get file: " .. file, 0 )
   end
 end
 
@@ -78,10 +92,8 @@ if #args == 0 then
  --ask for args
 end
 
-if #args > 0 then
-  if args[1] == "lama" then
-    installLama()
-  end
+if args[1] = "lama" then
+  installLama()
 end
 
 
