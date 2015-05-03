@@ -73,7 +73,7 @@ local function installEverything()
 end
 
 
-local function installLama()
+local function installLama() --deprecated, use install(packages.lama) 
   local response = http.get( repo .. "Turtle/lama/lama.lua" ) -- get the file
   if response then -- if we got it
     local file = fs.open( "lama", "w" ) -- save it
