@@ -78,8 +78,10 @@ if #args == 0 then
  --ask for args
 end
 
-if args[1] = "lama" then
-  installLama()
+if #args > 0 then
+  if args[1] == "lama" then
+    installLama()
+  end
 end
 
 
