@@ -23,15 +23,22 @@ do
 	end
 end
 
+local dirIgnore = {} --dirs to ignore (blacklist)
+local fileIgnore = {} --Files to ignore (blacklist)
+
+if not turtle then
+	dirIgnore[ "Turtle" ] = true
+end
+
 local dirsToGet = {"https://api.github.com/repos/lupus590/CC-Hive/contents/src"} --a table of directories to download & scan
 local filesToGet = {} --a table of files we need to download
 
 local function scanDir( response ) --a function for scanning a directory and allocating it's contents to the above tables
 	local f = json.decode( response.readAll() )
   	for k, v in pairs( f ) do
-  		if v["type"] == "dir" then
+  		if v["type"] == "dir" and not dirIgnore[ v.name ] then
   			dirsToGet[ #dirsToGet + 1 ] = v.url
-  		elseif v["type"] == "file" then
+  		elseif v["type"] == "file" and not fileIgnore[ v.name ] and v.name:match("%.(.-)$") ~= "md" then
 	 		filesToGet[ #filesToGet + 1 ] = v.download_url
 	 	end
 	end
