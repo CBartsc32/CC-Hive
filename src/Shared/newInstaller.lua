@@ -1,7 +1,8 @@
+--loading json
 local json = {}
 
 do
-	local env = {}
+	local env = {} --weird meta enviorment stuffs
 	setmetatable( env, {__index = _G} )
 	local response = http.get( "https://raw.githubusercontent.com/lupus590/CC-Hive/New-installer/src/Shared/json.lua" )
 	if not response then
@@ -22,10 +23,10 @@ do
 	end
 end
 
-local dirsToGet = {"https://api.github.com/repos/lupus590/CC-Hive/contents/src"}
-local filesToGet = {}
+local dirsToGet = {"https://api.github.com/repos/lupus590/CC-Hive/contents/src"} --a table of directories to download & scan
+local filesToGet = {} --a table of files we need to download
 
-local function scanDir( response )
+local function scanDir( response ) --a function for scanning a directory and allocating it's contents to the above tables
 	local f = json.decode( response.readAll() )
   	for k, v in pairs( f ) do
   		if v["type"] == "dir" then
@@ -36,7 +37,7 @@ local function scanDir( response )
 	end
 end
 
-local function getFile()
+local function getFile() --a function that downloads a single file at a time
 	while(#filesToGet > 0 or #dirsToGet > 0)do
 		local sPath = table.remove( filesToGet, 1 )
 		local response
@@ -50,7 +51,7 @@ local function getFile()
 	end
 end
 
-local function getDir()
+local function getDir() --a function that makes directories
 	while(#dirsToGet > 0)do
 		local sPath = table.remove( dirsToGet, 1 )
 		local response
@@ -62,4 +63,4 @@ local function getDir()
 	end
 end
 
-parallel.waitForAll( getFile, getFile, getFile, getDir, getDir )
+parallel.waitForAll( getFile, getFile, getFile, getDir, getDir ) --runs 3 getFiles, 2 getDirs at once!
