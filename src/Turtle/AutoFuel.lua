@@ -1,4 +1,5 @@
 --Author: Lupus590
+--this script is not fully lama compliant
 
 if(not turtle) then error("script must be run on a turtle",2) end--the 2 tell lua to blame the line that called this script
 if(turtle.getFuelLevel() == "unlimited") then return end--script is useless with unlimited fuel, so exit
