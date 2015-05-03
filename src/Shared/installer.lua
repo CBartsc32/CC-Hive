@@ -46,10 +46,10 @@ local function installEverything()
     fs.makeDir( dir )
   end
 
-  for k, file in pairs( files ) do
-    local response = http.get( repo .. file ) -- get the file
+  for k, v in pairs( files ) do
+    local response = http.get( repo .. v ) -- get the file (v)
     if response then -- if we got it
-      local file = fs.open( file, "w" ) -- save it
+      local file = fs.open( v, "w" ) -- save it
       file.write( response.readAll() )
       file.close()
       response.close()
@@ -59,10 +59,28 @@ local function installEverything()
   end
 end
 
+local function installLama()
+  local response = http.get( repo .. "Turtle/lama/lama.lua" ) -- get the file
+  if response then -- if we got it
+    local file = fs.open( "lama", "w" ) -- save it
+    file.write( response.readAll() )
+    file.close()
+    response.close()
+  else -- otherwise, error
+    error( "Failed to get file: " .. file, 0 )
+  end
+end
+
 
 local args = {...}
 
+if #args == 0 then
+ --ask for args
+end
 
+if args[1] = "lama" then
+  installLama()
+end
 
 
 
