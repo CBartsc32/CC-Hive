@@ -54,7 +54,7 @@ local function installEverything()
       file.close()
       response.close()
     else -- otherwise, error
-      error( "Failed to get file: " .. file, 0 )
+      error( "Failed to get file: " .. v, 0 )
     end
   end
 end
@@ -67,7 +67,7 @@ local function installLama()
     file.close()
     response.close()
   else -- otherwise, error
-    error( "Failed to get file: " .. file, 0 )
+    error( "Failed to get file: " .. "Turtle/lama/lama.lua", 0 )
   end
 end
 
