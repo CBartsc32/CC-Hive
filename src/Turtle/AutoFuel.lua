@@ -1,5 +1,4 @@
 --Author: Lupus590
---due to lama having to keep track of fuel, this file is now deprecated
 
 if(not turtle) then error("script must be run on a turtle",2) end--the 2 tell lua to blame the line that called this script
 if(turtle.getFuelLevel() == "unlimited") then return end--script is useless with unlimited fuel, so exit
