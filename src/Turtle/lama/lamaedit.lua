@@ -10,8 +10,8 @@ for k, v in pairs( _G.gps ) do
 	gps[ k ] = v
 end
 
-if not fs.isDir( ".lamaedit" ) then
-	fs.makeDir( ".lamaedit" )
+if not fs.isDir( ".lama" ) then
+	fs.makeDir( ".lama" )
 end
 
 --get the current env
@@ -21,8 +21,8 @@ local env = getfenv()
 --Fuel tracking
 local fuel = {}
 fuel.load = function() --loading fuel data
-	if fs.exists( ".lamaedit/fuel" ) then --if we've got previous data, we want to use it
-		local file = fs.open( ".lamaedit/fuel", "r" )
+	if fs.exists( ".lama/fuel" ) then --if we've got previous data, we want to use it
+		local file = fs.open( ".lama/fuel", "r" )
 		fuel.amount = tonumber( file.readAll() )
 		file.close()
 	else --otherwise, use the current fuel level
@@ -31,7 +31,7 @@ fuel.load = function() --loading fuel data
 end
 
 fuel.save = function() --save fuel data
-	local file = fs.open( ".lamaedit/fuel", "w" )
+	local file = fs.open( ".lama/fuel", "w" )
 	file.write( fuel.amount )
 	file.close()
 end
@@ -51,14 +51,14 @@ facing.turnRight = function() --changes the facing clockwise (on a compass) once
 end
 
 facing.save = function() --saves facing and current movement direction
-	local file = fs.open( ".lamaedit/facing", "w" )
+	local file = fs.open( ".lama/facing", "w" )
 	file.write( textutils.serialize( {facing.face, facing.direction} ) )
 	file.close()
 end
 
 facing.load = function() --loads facing / current movement direction
-	if fs.exists( ".lamaedit/facing" ) then --if we have previous data, we use it
-		local file = fs.open( ".lamaedit/facing", "r" )
+	if fs.exists( ".lama/facing" ) then --if we have previous data, we use it
+		local file = fs.open( ".lama/facing", "r" )
 		facing.face, facing.direction = unpack( textutils.unserialize( file.readAll() ) )
 		file.close()
 	else --otherwise, try to locate via gps
@@ -88,14 +88,14 @@ end
 local position = {}
 position.save = function() --saves position (x, y, z)
 	position.update() --update the position based on direction and fuel level, then save it to a file
-	local file = fs.open( ".lamaedit/position", "w" )
+	local file = fs.open( ".lama/position", "w" )
 	file.write( textutils.serialize( { position.x, position.y, position.z } ) )
 	file.close()
 end
 
 position.load = function() --loads position (x, y z)
-	if fs.exists( ".lamaedit/position" ) then --if we have previous data, use it
-		local file = fs.open( ".lamaedit/position", "r" )
+	if fs.exists( ".lama/position" ) then --if we have previous data, use it
+		local file = fs.open( ".lama/position", "r" )
 		position.x, position.y, position.z = unpack( textutils.unserialize( file.readAll() ) )
 		file.close()
 	else --otherwise try for gps coords
