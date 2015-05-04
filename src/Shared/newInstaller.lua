@@ -26,9 +26,31 @@ end
 local dirIgnore = {} --dirs to ignore (blacklist)
 local fileIgnore = {} --Files to ignore (blacklist)
 
+
+
+
 if not turtle then
 	dirIgnore[ "Turtle" ] = true
 end
+
+--[[
+--Message from Lupus590
+--I was thinking more like this, if this is not possible then that's ok
+
+if turtle then
+  --download turtle and shared stuffs
+  --skip surver and client stuff
+elseif pocket then
+  --download client stuff (it may be that the pocket PC is not a client, I originally planed on it filling that roll)
+  --download shared stuff
+  --skip server and turtle stuff
+else --server
+  --download server ans shared stuff
+  --skip turtle and client
+end
+]]
+
+
 
 local dirsToGet = {"https://api.github.com/repos/lupus590/CC-Hive/contents/src"} --a table of directories to download & scan
 local filesToGet = {} --a table of files we need to download
