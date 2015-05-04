@@ -1,3 +1,8 @@
+--this is an improved installer which will remove the need to track file paths
+--eventually it will allow updates without redownloading the entire repository
+--author: KingofGamesYami
+
+
 --loading json
 local json = {}
 
@@ -34,7 +39,7 @@ elseif pocket then
 	dirIgnore[ "Turtle" ] = true
 	dirIgnore[ "Server" ] = true
 else
-	dirIgnore[ "Turtle" = true
+	dirIgnore[ "Turtle" ] = true
 	dirIgnore[ "Client" ] = true
 	dirIgnore[ "Pocket" ] = true
 end
