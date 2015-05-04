@@ -1,17 +1,27 @@
+--this file is a WIP
+--Authors: Lupus590 and KingofGamesYami
+
 if not http then
   error("This installer requires the http API, check your config files or ask your server owner to enable http.",0)
 end
 
 local repo = "https://raw.githubusercontent.com/lupus590/CC-Hive/master/src/"
 
+--[[
 local packages = {
-  lama = {
-    id = "lama",
-    files = {
-      "Turtle/lama/lama.lua"
+  example = {
+    alias = { --a list of names that this package is know by, used when searching for packages
+      ""
+    }.
+    files = { --a list of files that are part of this package
+      ""
+    },
+    dependencies = { --a list of packages that this package requires
+      ""
     }
   }
 }
+]]
 
 local directories = { --list of folders to create
   "Assets",
