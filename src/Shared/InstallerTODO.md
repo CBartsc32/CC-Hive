@@ -1,4 +1,4 @@
-#####this is a to do list of what the new installer whill hopefully do
+#####this is a to do list of what the new installer will hopefully do
 
 * combine installer with lancher?
 * package like system (how is best to do this?)
