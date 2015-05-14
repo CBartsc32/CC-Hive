@@ -7,7 +7,7 @@
 * [ ] turtle movement api - make it emit turtle_moved event?
 * [ ] turtle task requester
 * [ ] tracking reporter
-* [ ] tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it)
+* [ ] tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it) https://github.com/lupus590/CC-Hive/issues/23
 
 ####Server Stuff
 * [ ] task master
