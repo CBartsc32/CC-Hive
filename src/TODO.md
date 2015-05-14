@@ -1,5 +1,4 @@
 #To Do List
-* [x] Convert readme, to do list to markdown format
 
 ####Turtle Stuff
 * [x] Update lama (last forum post said that it was buggy/not working in CC1.63)
@@ -14,8 +13,9 @@
 * [ ] turtle watcher
 
 ####Client
-* [ ] Command Line Interface
-* [ ] Graphical User Interface
+* [ ] API
+* [ ] Command Line Interface (should use api) Bonus, if api is runn as a program it provides the command line
+* [ ] Graphical User Interface (should use the api)
 
 ####Shared
 * [ ] remote connect - control computers like you are there, using Lyquds' nsh and vncd, still have to get the luancher to use this thing
