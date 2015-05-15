@@ -22,6 +22,7 @@
 * [ ] lua table for storing user settings
 
 ####Installer
+* [ ] choose a directory to install too (based of location of installer?)
 * [ ] package system
 * [ ] independent from repo folder structure
 * [ ] updater option (depends on package manager)
