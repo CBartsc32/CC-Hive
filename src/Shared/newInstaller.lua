@@ -1,4 +1,3 @@
-
 --this is an improved installer which will remove the need to track file paths
 --eventually it will allow updates without redownloading the entire repository
 --author: KingofGamesYami
@@ -97,9 +96,56 @@ local function installDefault()
   file.close()
 end
 
+local function getRemaining( t )
+  local i = 0
+  for k, v in pairs( t ) do
+    i = i + 1
+  end
+  return i
+end
+
+local function searchForFiles( ... )
+  local tSearching = {}
+  for i, v in ipairs( { ... } ) do
+    tSearching[ v ] = true
+  end
+  local dirs = { "https://api.github.com/repos/lupus590/CC-Hive/contents/src" }
+  local files_found = {}
+  while getRemaining( tSearching ) > 0 do
+    if #dirs == 0 then
+      error( "Could not find all files: invalid input", 0 )
+    end
+    local dir = table.remove( dirs, 1 )
+    local h
+    repeat
+      h = http.get( dir )
+    until h
+    local f = json.decode( h.readAll() )
+    for k, v in pairs( f ) do
+      local name = v.name:match( "(.+)%.lua )
+      print( name )
+      if v.type == "dir" then
+        table.insert( dirs, v.url )
+      elseif v.type == "file" and tSearching[ name ] then
+        files_found[ name ] = v.download_url
+        tSearching[ name ] = nil
+      end
+    end
+  end
+  for k, v in pairs( files_found ) do
+    local h
+    repeat
+      h = http.get( v )
+    until h
+    local file = fs.open( k, "w" )
+    file.write( h.readAll() )
+    file.close()
+  end
+end
+
 local tArgs = {...}
 if #tArgs == 0 then
   installDefault()
 else
-  --#todo: packages
+  searchForFiles( ... )
 end
