@@ -24,7 +24,7 @@
 ####Installer
 * [ ] choose a directory to install too (based of location of installer?)
 * [ ] package system
-* [x] independent from repo folder structure
+* [x] independent from repo folder structure (currently under testing)
 * [ ] updater option (depends on package manager)
 
 ####Help Docs
