@@ -14,7 +14,7 @@
 
 ####Client
 * [ ] API
-* [ ] Command Line Interface (should use api) Bonus, if api is runn as a program it provides the command line
+* [ ] Command Line Interface (should use api) Bonus, if api is ran as a program it provides the command line
 * [ ] Graphical User Interface (should use the api)
 
 ####Shared
@@ -24,7 +24,7 @@
 ####Installer
 * [ ] choose a directory to install too (based of location of installer?)
 * [ ] package system
-* [ ] independent from repo folder structure
+* [x] independent from repo folder structure (currently under testing)
 * [ ] updater option (depends on package manager)
 
 ####Help Docs
