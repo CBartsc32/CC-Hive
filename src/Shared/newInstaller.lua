@@ -89,7 +89,7 @@ end
 local function installDefault()
   parallel.waitForAll( getDir, getFile, getFile, getFile ) --runs 3 getFiles, 1 getDirs at once!
   print( "Done!" )
-  local file = fs.open( "installed", "w" )
+  local file = fs.open( ".hive_installed", "w" )
   for k, v in pairs( installed ) do
     file.writeLine( k .. " : " .. v )
   end
@@ -122,7 +122,7 @@ local function searchForFiles( ... )
     until h
     local f = json.decode( h.readAll() )
     for k, v in pairs( f ) do
-      local name = v.name:match( "(.+)%.lua )
+      local name = v.name:match( "(.+)%.lua" )
       print( name )
       if v.type == "dir" then
         table.insert( dirs, v.url )
@@ -143,9 +143,48 @@ local function searchForFiles( ... )
   end
 end
 
+local function update()
+  if not fs.exists( ",hive_installed" ) then
+    return installDefault()
+  end
+  local sha_files = {}
+  local file = fs.open( ".hive_installed", "r" )
+  for k, v in file.readLine():match( "(.-):(.-)" ) do
+    sha_files[ k ] = v
+  end
+  file.close()
+  while(#dirsToGet > 0)do
+    local sPath = table.remove( dirsToGet, 1 )
+    local response
+    repeat
+      response = http.get( sPath.url )
+    until response
+    fs.makeDir( sPath.path )
+    local f = json.decode( response.readAll() )
+    for k, v in pairs( f ) do
+      if v["type"] == "dir" then
+        table.insert( dirsToGet, {url = v.url, path = v.path:match( "src/(.+)" ) } )
+      elseif v["type"] == "file" and v.name:match("%.(.-)$") == "lua" then
+         if v.sha ~= sha_files[ v.path:match( "src/(.+)%.lua" ] then
+           table.insert( filesToGet, {url = v.download_url, path = v.path:match( "src/(.+)%.lua" ) } )
+           sha_files[ v.path:match( "src/(.+)%.lua" ) ] = v.sha
+         end
+      end
+    end
+    response.close()
+  end
+  parallel.waitForAll( getFile, getFile )
+  local file = fs.open( ".hive_installed", "w" )
+  for k, v in pairs( sha_files ) do
+    file.writeLine( k .. ":" .. v )
+  end
+end
+
 local tArgs = {...}
 if #tArgs == 0 then
   installDefault()
+elseif tArgs[ 1 ] == "update" then
+  update()
 else
   searchForFiles( ... )
 end
