@@ -144,7 +144,7 @@ local function searchForFiles( ... )
 end
 
 local function update()
-  if not fs.exists( ",hive_installed" ) then
+  if not fs.exists( ".hive_installed" ) then
     return installDefault()
   end
   local sha_files = {}
