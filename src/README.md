@@ -21,6 +21,7 @@
 ####Shared
 * [ ] remote connect - control computers like you are there, using Lyquds' nsh and vncd, still have to get the luancher to use this thing
 * [ ] lua table for storing user settings
+* [ ] an issue is opened on github when Hive crashes [github api reference](https://developer.github.com/v3/issues/#create-an-issue)
 
 ####Installer
 * [ ] choose a directory to install too (based of location of installer?)
