@@ -1,12 +1,12 @@
 #To Do List
 
 ####Turtle Stuff
-* [x] Update lama (last forum post said that it was buggy/not working in CC1.63)
-* [ ] Combine lama with starNav?
-* [ ] turtle movement api - make it emit turtle_moved event?
+* [x] Update lama (last forum post said that it was buggy/not working in CC1.63) Re-writing it works too.
+~~* [ ] Combine lama with starNav?~~
+~~* [ ] turtle movement api - make it emit turtle_moved event?~~
 * [ ] turtle task requester
 * [ ] tracking reporter
-* [ ] tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it) https://github.com/lupus590/CC-Hive/issues/23
+* [ ] tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it) https://github.com/lupus590/CC-Hive/issues/23 www.computercraft.info/forums2/index.php?/topic/23361-
 * [ ] sudo mode to escape sandbox (I have no idea where scripts may need this "super user" access, but someone may want to escape the sandbox and this will provide a way that is plesent for both the turtle and user)
 
 ####Server Stuff
