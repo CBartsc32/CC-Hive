@@ -1,6 +1,7 @@
 ###Collaborators are welcome/wanted
 ######"Start small and conquer one problem in computercraft coding at a time" -DireWolf20
 
+Please keep the Gitter conversation relivent to Hive. Also, not everything we discuss will be implemented, this is where we chuck ideas at each other.
 [![Join the chat at https://gitter.im/lupus590/CC-Hive](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/lupus590/CC-Hive?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Stories in Ready](https://badge.waffle.io/Lupus590/CC-Hive.svg?label=ready&title=Issue tracking on waffle)](http://waffle.io/Lupus590/CC-Hive) 
 
