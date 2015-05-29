@@ -1,0 +1,6 @@
+[submodule "src/Shared/ccDocker"]
+	path = src/Shared/ccDocker
+	url = https://github.com/lupus590/ccdocker.git
+[submodule "src/Shared/netShell"]
+	path = src/Shared/netShell
+	url = https://github.com/lupus590/cc-netshell.git

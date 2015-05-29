@@ -1,3 +1,0 @@
-http://www.computercraft.info/forums2/index.php?/topic/17229-vncd-an-nsh-compatible-vnc-server/
-
-http://www.computercraft.info/forums2/index.php?/topic/6472-nsh-now-with-previous-session-resume/
