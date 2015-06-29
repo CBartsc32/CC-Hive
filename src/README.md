@@ -2,8 +2,8 @@
 
 ####Turtle Stuff
 * [x] Update lama (last forum post said that it was buggy/not working in CC1.63) Re-writing it works too.
-~~* [ ] Combine lama with starNav?~~
-~~* [ ] turtle movement api - make it emit turtle_moved event?~~
+* [ ] ~~Combine lama with starNav?~~
+* [ ] ~~turtle movement api - make it emit turtle_moved event?~~
 * [ ] turtle task requester
 * [ ] tracking reporter
 * [ ] tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it) https://github.com/lupus590/CC-Hive/issues/23 www.computercraft.info/forums2/index.php?/topic/23361-
@@ -19,11 +19,13 @@
 * [ ] Graphical User Interface (should use the api)
 
 ####Shared
+* [ ] CC 1.74 auto-complete support
 * [ ] remote connect - control computers like you are there, using Lyquds' nsh and vncd, still have to get the luancher to use this thing
 * [ ] lua table for storing user settings
 * [ ] an issue is opened on github when Hive crashes [github api reference](https://developer.github.com/v3/issues/#create-an-issue)
 
 ####Installer
+* [ ] CC 1.74 auto-complete support
 * [ ] choose a directory to install too (based of location of installer?)
 * [ ] package system
 * [x] independent from repo folder structure (currently under testing)
