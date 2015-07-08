@@ -31,6 +31,7 @@
 * [ ] package system
 * [x] independent from repo folder structure (currently under testing)
 * [ ] updater option (depends on package manager)
+* [ ] bonus: progress bar
 
 ####Help Docs
 * [ ] help docs are "registered" with the default help program
