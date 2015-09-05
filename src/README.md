@@ -7,8 +7,8 @@
 * [ ] bonus: http://www.computercraft.info/forums2/index.php?/topic/11067-idea-exchange/page__view__findpost__p__224637
 * [ ] turtle task requester
 * [ ] tracking reporter
-* [ ] tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it) https://github.com/lupus590/CC-Hive/issues/23 www.computercraft.info/forums2/index.php?/topic/23361-
-* [ ] sudo mode to escape sandbox (I have no idea where scripts may need this "super user" access, but someone may want to escape the sandbox and this will provide a way that is plesent for both the turtle and user)
+* [ ] ~~ tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it) https://github.com/lupus590/CC-Hive/issues/23 www.computercraft.info/forums2/index.php?/topic/23361- ~~ using ccDocker
+* [ ] ~~ sudo mode to escape sandbox (I have no idea where scripts may need this "super user" access, but someone may want to escape the sandbox and this will provide a way that is plesent for both the turtle and user) ~~ see above
 
 ####Server Stuff
 * [ ] task master
@@ -21,8 +21,9 @@
 
 ####Shared
 * [ ] CC 1.74 auto-complete support
-* [ ] remote connect - control computers like you are there, using Lyquds' nsh and vncd, still have to get the luancher to use this thing
-* [ ] lua table for storing user settings
+* [ ] remote connect - control computers like you are there, using Lyquds' nsh and vncd, still have to get the launcher to use this thing
+* [ ] lua table for storing user settings/gui skins
+* [ ] BONUS: plugin system? have a folder that Hive loads them from on startup; plugin can register callbacks for events and choose whether callback is called before, after or overrides original behavour; how to handle multiple plugins modifying the same event, particularly if they all want to override? 
 * [ ] an issue is opened on github when Hive crashes [github api reference](https://developer.github.com/v3/issues/#create-an-issue)
 
 ####Installer
@@ -35,5 +36,5 @@
 
 ####Help Docs
 * [ ] help docs are "registered" with the default help program
-* [ ] make wiki on github repo? add one on CC wiki?
+* [ ] make wiki on github repo, add one on CC wiki?
 * [ ] BONUS: if a printer is detected, offer to print a manual
