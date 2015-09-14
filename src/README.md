@@ -27,7 +27,7 @@
 * [ ] an issue is opened on github when Hive crashes [github api reference](https://developer.github.com/v3/issues/#create-an-issue)
 
 ####Installer/Distribution
-* [ ] Use [Howl] (http://www.computercraft.info/forums2/index.php?/topic/21254-howl-lua-build-system/)
+* [ ] Use [Howl] (http://www.computercraft.info/forums2/index.php?/topic/21254-howl-lua-build-system/)?
 * [ ] CC 1.74 auto-complete support
 * [ ] choose a directory to install too (based of location of installer?)
 * [ ] package system
