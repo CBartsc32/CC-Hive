@@ -26,7 +26,8 @@
 * [ ] BONUS: plugin system? have a folder that Hive loads them from on startup; plugin can register callbacks for events and choose whether callback is called before, after or overrides original behavour; how to handle multiple plugins modifying the same event, particularly if they all want to override? 
 * [ ] an issue is opened on github when Hive crashes [github api reference](https://developer.github.com/v3/issues/#create-an-issue)
 
-####Installer
+####Installer/Distribution
+* [ ] Use [Howl] (http://www.computercraft.info/forums2/index.php?/topic/21254-howl-lua-build-system/)?
 * [ ] CC 1.74 auto-complete support
 * [ ] choose a directory to install too (based of location of installer?)
 * [ ] package system
