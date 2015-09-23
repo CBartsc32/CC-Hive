@@ -1,9 +1,11 @@
+
 --constants
 local HiveServerIDFile = "HiveServerID" --file path and name
 
 --variables
 local HiveServerID
 local JoinMessage = table.serilise({messageType = "turtleJoin", })
+
 
 --init
 --load lama
@@ -12,6 +14,7 @@ local JoinMessage = table.serilise({messageType = "turtleJoin", })
 --init auto refuel
 --load starnav?
 --init starnav?
+
 
 
 local function joinHiveServer()--connect to hive
@@ -31,6 +34,7 @@ local function rejoinHive()--read a file to rejoin last joined hive (defult opti
     file.close()
     
 end
+
 
 
 --main loop
