@@ -20,82 +20,86 @@
 
 ]]
 
--- Variables:
---[[
-	Change the variable below "emulator" to test on emulators
-]]
-emulator = true
-nTries = 0
-server = {}
-server.__index = server
-server.draw = {}
-server.draw.__index = server.draw
-server.core = {}
-server.core.__index = server.core
-ccsysurl = "https://ccsystems.dannysmc.com/ccsystems.php"
+---------------------------------------- INITIALISATION OF VARIABLES AND NAMING CONVENTIONS ----------------------------------------
+cchive = {}
+cchive.__index = cchive
+cchive.draw = {}
+cchive.draw.__index = cchive.draw
+cchive.core = {}
+cchive.core.__index = cchive.core
 
--- Code:
 
-function server.getapi()
-	-- Grab the API
+-------------------------------------- END INITIALISATION OF VARIABLES AND NAMING CONVENTIONS ----------------------------------------
+
+-- Download my API
+local downloadapi = false
+local nTries = 0
+while not downloadapi do
 	local ok, err = pcall( function()
-		-- Check for http
 		if http then
-			aa = aa or {}
-			local a = http.get("https://vault.dannysmc.com/lua/api/dannysmcapi.lua") -- url
-			a = a.readAll()
-			local env = {}
-			a = loadstring(a)
-			local env = getfenv()
-			setfenv(a, env)
-			local status, err = pcall(a, unpack(aa))
-			if (not status) and err then
-				printError("Error loading api")
-				return false
-			end
-			local returned = err
-			env = env
-			_G["progutils"] = env
-		else
-			printError("HTTP needs to be enabled!")
-			return false
+		    aa = aa or {}
+		    local a = http.get("https://api.dannysmc.com/files/apis/progutils.lua")
+		    a = a.readAll()
+		    local env = {}
+		    a = loadstring(a)
+		    local env = getfenv()
+		    setfenv(a,env)
+		    local status, err = pcall(a, unpack(aa))
+		    if (not status) and err then
+		        printError("Error loading api")
+		        return false
+		    end
+		    local returned = err
+		    env = env
+		    _G["progutils"] = env
 		end
 	end)
-	-- try 3 times to download API.
 	if not ok then
-		if nTries == 3 then
-			print("Api failed to download 3 times, running shell instead.")
-			sleep(2.5)
-			term.clear()
-			term.setCursorPos(1,1)
+		term.clear()
+		term.setCursorPos(1,1)
+		print("Download API (Attempt: "..nTries.."/".."5)")
+		if nTries >= 5 then
 			shell.run("shell")
-		else
-			nTries = nTries + 1
-			print(err)
-			print("Failed to get api, re-trying...")
-			sleep(1)
-			server.getapi()
 		end
 	else
-		-- run core program in protected call to catch any errors and direct them to server.crash(error_message)
-		local ok, err = pcall(function ()
-			server.main()
-		end)
-		if not ok then
-			server.crash(err)
-		end
+		downloadapi = true
 	end
 end
 
-function server.crash(err)
-	-- This is just temporary.
+function cchive.init()
+	
+end
 
-	col.screen("white")
-	server.draw.bar("Crash")
-	for k, v in ipairs(data.wordwrap(err, 51)) do
-		draw.texta(v, 1, 2+k, false, "cyan", "white")
-	end
 
-	sleep(2)
-	os.reboot()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------- START CC-HIVE SYSTEM SERVER ----------------------------------------
+if downloadapi then
+	cchive.init()
+else
+	error("CC-Hive\'s server has crashed! :(")
 end
