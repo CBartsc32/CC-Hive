@@ -17,7 +17,11 @@ local JoinMessage = table.serilise({messageType = "turtleJoin", })
 local function joinHiveServer()--connect to hive
   --presume that HiveServerID is valid or nil
   if HiveServerID then
-  rednet.send(HiveServerID, JoinMessage)
+    rednet.send(HiveServerID, JoinMessage)
+  else
+    return false
+  end
+  
 end
 
 local function rejoinHive()--read a file to rejoin last joined hive (defult option)
