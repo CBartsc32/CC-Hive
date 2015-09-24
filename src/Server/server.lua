@@ -76,7 +76,7 @@ hivedata = {
 		["modemSide"] = "top";
 		["type"] = "server:solo";
 		["name"] = "CC-Hive Server";
-	};
+	}; 
 }
 
 
