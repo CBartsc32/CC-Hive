@@ -69,19 +69,97 @@ end
 -- Set up variables
 hivedata = {
 	["buffer"] = {};
-	["turtles"] = {};
-	["clients"] = {};
-	["monitors"] = {};
 	["config"] = {
 		["modemSide"] = "top";
 		["type"] = "server:solo";
 		["name"] = "CC-Hive Server";
-	}; 
+	};
+	["trusted"] = {};
+	["status"] = {
+		["server"] = "OKAY";
+		["buffer"] = "OKAY";
+		["requests"] = {
+			["total"] = 0;
+			["session"] = 0;
+		};
+	};
 }
 
+function cchive.main()
+
+	local ok, err = pcall( function() 
+
+		-- Initialise Hive
+		cchive.init()
+
+		-- Initialise Screen
+		cchive.screen()
+
+		-- Load Configs
+		cchive.config()
+
+		cchive.event()
+
+	end)
+	if not ok then
+		col.screen("white")
+		local text = "Thanks for using CC-Hive, it seems an error has occured, forcing the system to halt, please choose the appropriate option."
+		for k,v in ipairs(data.wordwrap(text, 40)) do
+			draw.textc(v, k+4, false, "grey", "white")
+		end
+		draw.textc("---------- Error Message ----------", 11, false, "grey", "white")
+		for k,v in ipairs(data.wordwrap(err, 45)) do
+			draw.textc(v, k+12, false, "red", "white")
+		end
+		sleep(2)
+		draw.cscreen()
+	else
+		col.screen("white")
+		local text = "Thanks for using CC-Hive, this software is developed and maintained by Lupus590, DannySMc and KingofGamesYami."
+		for k,v in ipairs(data.wordwrap(text, 40)) do
+			draw.textc(v, k+7, false, "grey", "white")
+		end
+		sleep(2)
+		draw.cscreen()
+	end
+end
+
+function cchive.init()
+
+end
+
+function cchive.screen()
+	col.screen("white")
+	draw.box(1, 51, 1, 1, " ", "grey", "grey")
+	draw.textl("CC-Hive", 1, false, "cyan", "grey")
+	draw.textr(misc.time(), 1, false, "lime", "grey")
+	draw.texta("[SERVER]: " .. hivedata.status.server, 1, 4, false, "grey", "white")
+	draw.texta("[BUFFER]: " .. hivedata.status.buffer.. " - ("..#hivedata.buffer..")", 1, 5, false, "grey", "white")
+	draw.texta("[REQUES]: Session("..hivedata.status.requests.session..") - Total("..hivedata.status.requests.total..")", 1, 6, false, "grey", "white")
+end
+
+function cchive.config()
+
+end
+
+function cchive.event()
+	while true do
+		local args = { os.pullEvent() }
+		if args[1] == "timer" then
+			draw.textr(misc.time(), 1, false, "lime", "grey")
+		elseif args[1] == "rednet_message" then
+			-- Check if reply is trusted
+			for _, v in ipairs(hivedata.trusted) then
+				if v.id == args[2] then
+
+					-- Do main code parsing here.
 
 
-
+				end
+			end
+		end
+	end
+end
 
 
 
@@ -108,7 +186,7 @@ hivedata = {
 
 ---------------------------------------- START CC-HIVE SYSTEM SERVER ----------------------------------------
 if downloadapi then
-	cchive.init()
+	cchive.main()
 else
 	error("CC-Hive\'s server has crashed! :(")
 end
