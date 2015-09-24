@@ -117,8 +117,10 @@ function cchive.main()
 		col.screen("white")
 		local text = "Thanks for using CC-Hive, this software is developed and maintained by Lupus590, DannySMc and KingofGamesYami."
 		for k,v in ipairs(data.wordwrap(text, 40)) do
-			draw.textc(v, k+7, false, "grey", "white")
+			draw.textc(v, k+15, false, "grey", "white")
 		end
+		local logo = paintutils.loadImage("CC-Hive/src/Assets/logo.lua")
+		paintutils.drawImage(logo, 8, 2)
 		sleep(2)
 		draw.cscreen()
 	end
@@ -149,14 +151,34 @@ function cchive.event()
 			draw.textr(misc.time(), 1, false, "lime", "grey")
 		elseif args[1] == "rednet_message" then
 			-- Check if reply is trusted
-			for _, v in ipairs(hivedata.trusted) then
+			for _, v in ipairs(hivedata.trusted) do
 				if v.id == args[2] then
 
 					-- Do main code parsing here.
+					local request = textutils.unserialize(args[3])
+					
+					if request.command == "FINISHED" then
+						-- Turtle Command
 
+					elseif request.command == "WORKING" then
+						-- Turtle Command
+
+					elseif request.command == "ERROR" then
+						-- Turtle Command
+
+					elseif request.command == "RUN_JOB" then
+						-- Turtle Command
+
+					elseif request.command == "NEW_JOB" then
+						-- Client Command
+
+					elseif request.command == "DEL_JOB" then
+						-- Client Command
 
 				end
 			end
+		elseif args[1] == "char" then
+			break
 		end
 	end
 end
@@ -178,7 +200,25 @@ end
 
 
 
+--[[
 
+	REQUESTS:
+		CLIENT:
+			+ JOB_NEW
+			+ JOB_DEL
+			+ JOB_EDT
+	
+		TURTLE:
+			+ TASK_NEW
+			+ TASK_DEL
+			+ TASK
+
+		MONITOR:
+			+ MON_STATUS
+			+ MON_STATUS_TURTLE
+			+ MON_JOBS
+
+]]
 
 
 
