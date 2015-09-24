@@ -66,9 +66,18 @@ while not downloadapi do
 	end
 end
 
-function cchive.init()
-	
-end
+-- Set up variables
+hivedata = {
+	["buffer"] = {};
+	["turtles"] = {};
+	["clients"] = {};
+	["monitors"] = {};
+	["config"] = {
+		["modemSide"] = "top";
+		["type"] = "server:solo";
+		["name"] = "CC-Hive Server";
+	};
+}
 
 
 
