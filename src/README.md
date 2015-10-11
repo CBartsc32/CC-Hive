@@ -5,6 +5,7 @@
 * [ ] ~~Combine lama with starNav?~~
 * [ ] ~~turtle movement api - make it emit turtle_moved event?~~
 * [ ] bonus: http://www.computercraft.info/forums2/index.php?/topic/11067-idea-exchange/page__view__findpost__p__224637
+* [ ] Check points for turtle tasks, continue a task if interrupted or on reboot
 * [ ] turtle task requester
 * [ ] tracking reporter
 * [ ] ~~ tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it) https://github.com/lupus590/CC-Hive/issues/23 www.computercraft.info/forums2/index.php?/topic/23361- ~~ using ccDocker
