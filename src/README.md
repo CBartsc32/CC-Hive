@@ -8,8 +8,8 @@
 * [ ] bonus: Check points for turtle tasks, continue a task if interrupted or on reboot (May cause problems with ccDocker)
 * [ ] turtle task requester
 * [ ] tracking reporter
-* [ ] ~~ tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it) https://github.com/lupus590/CC-Hive/issues/23 www.computercraft.info/forums2/index.php?/topic/23361- ~~ using ccDocker
-* [ ] ~~ sudo mode to escape sandbox (I have no idea where scripts may need this "super user" access, but someone may want to escape the sandbox and this will provide a way that is plesent for both the turtle and user) ~~ see above
+* [ ] ~~tasks run in a sandbox, file access is done in a folder (some tasks may need to see rom, so we will have to emulate it) (https://github.com/lupus590/CC-Hive/issues/23 www.computercraft.info/forums2/index.php?/topic/23361- )~~ using ccDocker
+* [ ] ~~sudo mode to escape sandbox (I have no idea where scripts may need this "super user" access, but someone may want to escape the sandbox and this will provide a way that is plesent for both the turtle and user)~~ see above
 
 ####Server Stuff
 * [ ] task master
