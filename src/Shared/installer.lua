@@ -1,8 +1,27 @@
+--this file is a WIP
+--Authors: Lupus590 and KingofGamesYami
+
 if not http then
   error("This installer requires the http API, check your config files or ask your server owner to enable http.",0)
 end
 
 local repo = "https://raw.githubusercontent.com/lupus590/CC-Hive/master/src/"
+
+--[[
+local packages = {
+  example = {
+    alias = { --a list of names that this package is know by, used when searching for packages
+      ""
+    }.
+    files = { --a list of files that are part of this package
+      ""
+    },
+    dependencies = { --a list of packages that this package requires
+      ""
+    }
+  }
+}
+]]
 
 local directories = { --list of folders to create
   "Assets",
@@ -41,6 +60,10 @@ local files = { --list of files to get
 }
 
 
+local function install(fileName)
+end
+
+
 local function installEverything()
   for _, dir in ipairs( directories ) do -- make the directories
     fs.makeDir( dir )
@@ -54,12 +77,13 @@ local function installEverything()
       file.close()
       response.close()
     else -- otherwise, error
-      error( "Failed to get file: " .. v, 0 )
+      error( "Failed to get file: " .. file, 0 )
     end
   end
 end
 
-local function installLama()
+
+local function installLama() --deprecated, use install(packages.lama) 
   local response = http.get( repo .. "Turtle/lama/lama.lua" ) -- get the file
   if response then -- if we got it
     local file = fs.open( "lama", "w" ) -- save it
@@ -67,7 +91,7 @@ local function installLama()
     file.close()
     response.close()
   else -- otherwise, error
-    error( "Failed to get file: " .. "Turtle/lama/lama.lua", 0 )
+    error( "Failed to get file: " .. file, 0 )
   end
 end
 
@@ -78,10 +102,8 @@ if #args == 0 then
  --ask for args
 end
 
-if #args > 0 then
-  if args[1] == "lama" then
-    installLama()
-  end
+if args[1] = "lama" then
+  installLama()
 end
 
 
