@@ -19,6 +19,7 @@
 * [ ] API
 * [ ] Command Line Interface (should use api) Bonus, if api is ran as a program it provides the command line
 * [ ] Graphical User Interface (should use the api)
+* [ ] Turtle inventory viewer (over rednet)
 
 ####Shared
 * [ ] CC 1.74 auto-complete support
