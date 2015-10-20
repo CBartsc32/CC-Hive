@@ -21,8 +21,11 @@
 * [ ] Graphical User Interface (should use the api)
 * [ ] Turtle inventory viewer (over rednet)
 
-####Shared
-* [ ] BONUS: Cooperative turtles, a task can take mulitple turtles which will work on the same task at the same time, however this task could also be done with a single turtle.
+####Shared/Other
+* [ ] Peripheral storage, turtles can swap their peripherals here, only packing what they need for a task
+* [ ] BONUS: Item crafting, hive will craft items required for tasks. (or even allow item crafting tasks)
+* [ ]
+* [ ] BONUS: Cooperative turtles, a task can take mulitple turtles which will work on the same task at the same time, however this task could also be done with a single turtle. (Master turtle and slave turtle/s?, muliple task files, one per turtle?)
 * [ ] CC 1.74 auto-complete support
 * [ ] remote connect - control computers like you are there, using Lyquds' nsh and vncd, still have to get the launcher to use this thing
 * [ ] lua table for storing user settings/gui skins
