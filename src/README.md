@@ -22,6 +22,7 @@
 * [ ] Turtle inventory viewer (over rednet)
 
 ####Shared
+* [ ] BONUS: Cooperative turtles, a task can take mulitple turtles which will work on the same task at the same time, however this task could also be done with a single turtle.
 * [ ] CC 1.74 auto-complete support
 * [ ] remote connect - control computers like you are there, using Lyquds' nsh and vncd, still have to get the launcher to use this thing
 * [ ] lua table for storing user settings/gui skins
@@ -40,4 +41,4 @@
 ####Help Docs
 * [ ] help docs are "registered" with the default help program
 * [ ] make wiki on github repo, add one on CC wiki?
-* [ ] BONUS: if a printer is detected, offer to print a manual
+* [ ] ~~BONUS: if a printer is detected, offer to print a manual~~
