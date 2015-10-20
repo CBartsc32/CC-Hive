@@ -1,0 +1,1 @@
+I have to ask why are you making installers when you do not know what files will be needed? This confuses me, seems like you could be working on a client design or something instead of messing with the installer, that should really be the last thing we do...?
