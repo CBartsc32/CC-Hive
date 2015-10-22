@@ -155,7 +155,10 @@ function cchive.event()
 				if v.id == args[2] then
 
 					-- Do main code parsing here.
-					local request = textutils.unserialize(args[3])
+					-- Add a transmit.decode() function to API to streamline this?
+					local request = basesf.decode(args[3])
+					local request1 = convert.bintotxt(request)
+					request = textutils.unserialize(request)
 					
 					if request.command == "FINISHED" then
 						-- Turtle Command
@@ -169,12 +172,21 @@ function cchive.event()
 					elseif request.command == "RUN_JOB" then
 						-- Turtle Command
 
+					elseif request.command == "CLIENT_CONNECT" then
+						-- Client Command
+							-- Add to trusted,
+							-- Administer encryption keys
+						-- Same thing for turtles initially connecting
+						
 					elseif request.command == "NEW_JOB" then
 						-- Client Command
 
 					elseif request.command == "DEL_JOB" then
 						-- Client Command
 
+					end
+					hivedata.status.requests.session = hivedata.status.requests.session + 1
+					hivedata.status.requests.total = hivedata.status.requests.total + 1
 				end
 			end
 		elseif args[1] == "char" then
