@@ -4,9 +4,9 @@ local HiveServerIDFile = "HiveServerID" --file path and name
 
 --variables
 local HiveServerID
-local JoinMessage = table.serilise({messageType = "turtleJoin", })
+local JoinMessage = textutils.serialize({command = "TURTLE_CONNECT"})
 
-
+--load progutils API
 --init
 --load lama
 --init lama
@@ -20,11 +20,20 @@ local JoinMessage = table.serilise({messageType = "turtleJoin", })
 local function joinHiveServer()--connect to hive
   --presume that HiveServerID is valid or nil
   if HiveServerID then
-    rednet.send(HiveServerID, JoinMessage)
+    transmit.send(HiveServerID, JoinMessage, "hivesystem")
   else
     return false
   end
-  
+  local ServerID, msg = transmit.receive(2, "hivesystem")
+  while ServerID ~= HiveServerID do
+    ServerID, msg = transmit.receive(2, "hivesystem")
+    end
+    if not ServerID then
+      return false
+    end
+  end
+  encryptionKey = msg.data
+  return true
 end
 
 local function rejoinHive()--read a file to rejoin last joined hive (defult option)
