@@ -119,8 +119,8 @@ function client.core.connect()
 	end
 
 	-- broadcast a ping to receive the serverid on the protocol "hivesystem" this is just for clients and will be properly paired when all is built.
-	rednet.broadcast("client_connect", "hivesystem")
-	serverid, message = rednet.receive("hivesystem", 2)
+	transmit.broadcast("CLIENT_CONNECT", "hivesystem")
+	serverid, message = transmit.receive(2, "hivesystem")
 	if serverid then
 		return true
 	else
